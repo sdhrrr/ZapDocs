@@ -1,0 +1,218 @@
+/* Architecture Visualization Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Graph Area - 70% */
+.graph-container {
+    width: 70%;
+    height: 100vh;
+    position: relative;
+    background: white;
+    border-right: 2px solid #e9ecef;
+}
+
+#cy {
+    width: 100%;
+    height: 100%;
+}
+
+/* Controls */
+.controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+.btn-secondary {
+    background: #6c757d;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+}
+
+/* Sidebar - 30% */
+.sidebar {
+    width: 30%;
+    height: 100vh;
+    background: #f8f9fa;
+    padding: 20px;
+    overflow-y: auto;
+    border-left: 1px solid #dee2e6;
+}
+
+.sidebar h2 {
+    color: #495057;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.sidebar h3 {
+    color: #007bff;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.component-details {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.detail-section {
+    margin-bottom: 20px;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.signature {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 4px;
+    border-left: 4px solid #007bff;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+.working-description {
+    line-height: 1.6;
+    color: #495057;
+}
+
+.imports-list {
+    list-style: none;
+    padding: 0;
+}
+
+.imports-list li {
+    background: #e7f3ff;
+    margin: 4px 0;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+}
+
+.breadcrumb {
+    background: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.breadcrumb-item {
+    display: inline;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: " > ";
+    margin: 0 8px;
+    color: #adb5bd;
+}
+
+.breadcrumb-item.active {
+    color: #007bff;
+    font-weight: 500;
+}
+
+/* Loading and empty states */
+.empty-state {
+    text-align: center;
+    color: #6c757d;
+    padding: 40px 20px;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #007bff;
+}
+
+/* Project header */
+.project-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.project-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.project-description {
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .graph-container {
+        width: 100%;
+        height: 60vh;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: 40vh;
+    }
+    
+    .controls {
+        position: relative;
+        top: 10px;
+        left: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Cytoscape node styling will be handled in JavaScript */
