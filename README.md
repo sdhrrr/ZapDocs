@@ -241,30 +241,4 @@ Add comprehensive information to each component:
   }
 }
 ```
-
-## 📊 Performance
-
-- **Generation**: ~100ms for typical architectures
-- **File size**: 30-50KB for generated HTML
-- **Browser**: Smooth on 100+ components
-- **Mobile**: Responsive design works on all devices
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**Q: Generated HTML shows no components**
-A: Check that your JSON has valid `nodes` and `edges` arrays
-
-**Q: Hierarchy not working**
-A: Ensure `hierarchy` object keys match node IDs exactly
-
-**Q: Components not styled correctly**
-A: Verify component `type` values match predefined types
-
-**Q: Layout looks broken**
-A: Check that all edge `source` and `target` values reference existing node IDs
-
-
-
 **Generate beautiful architecture documentation in seconds!** 🎉
