@@ -1,0 +1,258 @@
+{
+    "metadata": {
+        "projectName": "E-Commerce Platform",
+        "description": "Microservices-based e-commerce platform with React frontend",
+        "version": "2.1.0",
+        "generated": "2025-08-18"
+    },
+    "nodes": [
+        {
+            "id": "platform",
+            "data": {
+                "label": "E-Commerce Platform",
+                "type": "application"
+            }
+        },
+        {
+            "id": "frontend",
+            "data": {
+                "label": "React Frontend",
+                "type": "frontend"
+            }
+        },
+        {
+            "id": "api-gateway",
+            "data": {
+                "label": "API Gateway",
+                "type": "backend"
+            }
+        },
+        {
+            "id": "user-service",
+            "data": {
+                "label": "User Service",
+                "type": "backend"
+            }
+        },
+        {
+            "id": "product-service",
+            "data": {
+                "label": "Product Service",
+                "type": "backend"
+            }
+        },
+        {
+            "id": "order-service",
+            "data": {
+                "label": "Order Service",
+                "type": "backend"
+            }
+        },
+        {
+            "id": "payment-service",
+            "data": {
+                "label": "Payment Service",
+                "type": "backend"
+            }
+        },
+        {
+            "id": "notification-service",
+            "data": {
+                "label": "Notification Service",
+                "type": "backend"
+            }
+        },
+        {
+            "id": "user-db",
+            "data": {
+                "label": "User Database",
+                "type": "database"
+            }
+        },
+        {
+            "id": "product-db",
+            "data": {
+                "label": "Product Database",
+                "type": "database"
+            }
+        },
+        {
+            "id": "order-db",
+            "data": {
+                "label": "Order Database",
+                "type": "database"
+            }
+        },
+        {
+            "id": "redis-cache",
+            "data": {
+                "label": "Redis Cache",
+                "type": "cache"
+            }
+        }
+    ],
+    "details": {
+        "platform": {
+            "summary": "Complete e-commerce platform handling user management, product catalog, orders, and payments",
+            "signature": "microservices architecture",
+            "working": "The platform consists of multiple microservices communicating through an API gateway. Each service handles a specific domain and has its own database for data isolation.",
+            "imports": []
+        },
+        "frontend": {
+            "summary": "React-based single page application providing user interface for the e-commerce platform",
+            "signature": "React 18 + Redux Toolkit + React Router",
+            "working": "Built with React 18 and Redux for state management. Communicates with backend services through the API gateway. Responsive design supporting both desktop and mobile users.",
+            "imports": ["api-gateway"]
+        },
+        "api-gateway": {
+            "summary": "Central entry point that routes requests to appropriate microservices and handles cross-cutting concerns",
+            "signature": "Express.js + JWT authentication + Rate limiting",
+            "working": "Routes incoming requests to appropriate microservices based on URL patterns. Handles authentication using JWT tokens, rate limiting, request logging, and response caching. Implements circuit breaker pattern for fault tolerance.",
+            "imports": ["user-service", "product-service", "order-service", "payment-service", "notification-service"]
+        },
+        "user-service": {
+            "summary": "Manages user accounts, authentication, profiles, and authorization",
+            "signature": "Node.js + Express + JWT + bcrypt",
+            "working": "Handles user registration, login, profile management, and password reset functionality. Uses bcrypt for password hashing and JWT for session management. Implements role-based access control.",
+            "imports": ["user-db", "redis-cache"]
+        },
+        "product-service": {
+            "summary": "Manages product catalog, inventory, categories, and search functionality",
+            "signature": "Node.js + Express + Elasticsearch",
+            "working": "Provides CRUD operations for products, categories, and inventory management. Implements full-text search using Elasticsearch. Handles product images and metadata.",
+            "imports": ["product-db", "redis-cache"]
+        },
+        "order-service": {
+            "summary": "Handles order processing, shopping cart, and order history",
+            "signature": "Node.js + Express + Saga pattern",
+            "working": "Manages the complete order lifecycle from cart creation to fulfillment. Implements saga pattern for distributed transactions. Coordinates with payment and notification services.",
+            "imports": ["order-db", "payment-service", "notification-service"]
+        },
+        "payment-service": {
+            "summary": "Processes payments, refunds, and integrates with external payment providers",
+            "signature": "Node.js + Stripe API + PCI compliance",
+            "working": "Handles payment processing through multiple providers (Stripe, PayPal). Implements secure payment flows with PCI compliance. Manages payment history and refund processes.",
+            "imports": ["notification-service"]
+        },
+        "notification-service": {
+            "summary": "Sends emails, SMS, and push notifications for various platform events",
+            "signature": "Node.js + SendGrid + Firebase",
+            "working": "Handles all outbound communications including order confirmations, password resets, promotional emails, and push notifications. Uses templates for consistent messaging.",
+            "imports": []
+        },
+        "user-db": {
+            "summary": "PostgreSQL database storing user accounts, profiles, and authentication data",
+            "signature": "PostgreSQL 14 + connection pooling",
+            "working": "Stores user information with proper indexing for performance. Implements data encryption for sensitive information. Uses connection pooling for efficient resource usage.",
+            "imports": []
+        },
+        "product-db": {
+            "summary": "MongoDB database storing product catalog, categories, and inventory data",
+            "signature": "MongoDB 6.0 + GridFS for images",
+            "working": "Document-based storage optimized for product catalog with flexible schema. Uses GridFS for storing product images. Implements proper indexing for search performance.",
+            "imports": []
+        },
+        "order-db": {
+            "summary": "PostgreSQL database storing order data, transactions, and order history",
+            "signature": "PostgreSQL 14 + partitioning",
+            "working": "Stores order information with ACID compliance for data integrity. Uses table partitioning for performance at scale. Implements audit logging for order changes.",
+            "imports": []
+        },
+        "redis-cache": {
+            "summary": "In-memory cache for session data, frequently accessed data, and rate limiting",
+            "signature": "Redis 7.0 + clustering",
+            "working": "Provides high-performance caching for user sessions, product data, and API rate limiting. Implements cache invalidation strategies and data expiration policies.",
+            "imports": []
+        }
+    },
+    "hierarchy": {
+        "platform": [
+            "frontend",
+            "api-gateway"
+        ],
+        "api-gateway": [
+            "user-service",
+            "product-service",
+            "order-service",
+            "payment-service",
+            "notification-service"
+        ],
+        "user-service": [
+            "user-db",
+            "redis-cache"
+        ],
+        "product-service": [
+            "product-db",
+            "redis-cache"
+        ],
+        "order-service": [
+            "order-db"
+        ]
+    },
+    "edges": [
+        {
+            "source": "platform",
+            "target": "frontend"
+        },
+        {
+            "source": "platform",
+            "target": "api-gateway"
+        },
+        {
+            "source": "frontend",
+            "target": "api-gateway"
+        },
+        {
+            "source": "api-gateway",
+            "target": "user-service"
+        },
+        {
+            "source": "api-gateway",
+            "target": "product-service"
+        },
+        {
+            "source": "api-gateway",
+            "target": "order-service"
+        },
+        {
+            "source": "api-gateway",
+            "target": "payment-service"
+        },
+        {
+            "source": "api-gateway",
+            "target": "notification-service"
+        },
+        {
+            "source": "user-service",
+            "target": "user-db"
+        },
+        {
+            "source": "user-service",
+            "target": "redis-cache"
+        },
+        {
+            "source": "product-service",
+            "target": "product-db"
+        },
+        {
+            "source": "product-service",
+            "target": "redis-cache"
+        },
+        {
+            "source": "order-service",
+            "target": "order-db"
+        },
+        {
+            "source": "order-service",
+            "target": "payment-service"
+        },
+        {
+            "source": "order-service",
+            "target": "notification-service"
+        },
+        {
+            "source": "payment-service",
+            "target": "notification-service"
+        }
+    ]
+}
