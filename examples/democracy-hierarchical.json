@@ -1,0 +1,771 @@
+{
+  "metadata": {
+    "projectName": "Democratic Systems: Complete Hierarchical Structure",
+    "description": "A comprehensive, hierarchical view of democratic governance showing how constitutional principles create government institutions and democratic processes",
+    "version": "4.0",
+    "created": "2025-09-05",
+    "author": "Democracy Education Initiative",
+    "topic": "political-science",
+    "contentType": "educational"
+  },
+  "nodes": [
+    {
+      "id": "constitutional-democracy",
+      "data": {
+        "label": "Constitutional Democracy",
+        "type": "data",
+        "description": "The foundational system where constitutional law governs democratic institutions",
+        "summary": "Constitutional democracy is the foundational framework where a constitution serves as the supreme law establishing democratic institutions, protecting individual rights, and defining the limits and structure of government power. It combines the principle of popular sovereignty with the rule of law, ensuring that majority rule operates within constitutional constraints that protect minority rights and individual freedoms.",
+        "keyPrinciples": ["Constitutional supremacy", "Popular sovereignty", "Rule of law", "Limited government", "Individual rights protection"],
+        "historicalContext": "Developed from Enlightenment political philosophy, especially Montesquieu's separation of powers and Locke's limited government theories",
+        "significance": "Foundation for all democratic institutions and processes"
+      }
+    },
+    {
+      "id": "legislative-branch",
+      "data": {
+        "label": "Legislative Branch",
+        "type": "backend",
+        "description": "The law-making branch of government",
+        "summary": "The legislative branch is the law-making body of government, typically consisting of elected representatives who debate, draft, and pass legislation. This branch represents the will of the people, controls government spending through budget approval, and provides oversight of the executive branch. Legislatures may be unicameral (single chamber) or bicameral (two chambers).",
+        "keyFunctions": ["Create laws", "Represent citizens", "Control budget", "Oversight of executive", "Impeachment proceedings"],
+        "powers": ["Pass legislation", "Tax and spend", "Regulate commerce", "Declare war", "Investigate government"],
+        "structure": "Unicameral or bicameral chambers"
+      }
+    },
+    {
+      "id": "parliament",
+      "data": {
+        "label": "Parliament",
+        "type": "backend",
+        "description": "Bicameral legislative institution in parliamentary systems",
+        "summary": "Parliament is the supreme legislative institution in parliamentary democracies, where elected representatives debate and pass laws. It serves as the primary forum for democratic discourse, representing diverse viewpoints and interests. Parliament holds the government accountable through questions, debates, and votes of confidence.",
+        "keyFunctions": ["Legislation", "Representation", "Government oversight", "Budget approval", "Public debate"],
+        "structure": "Usually bicameral with upper and lower houses",
+        "sovereignty": "Often considered the supreme authority in parliamentary systems"
+      }
+    },
+    {
+      "id": "house-representatives",
+      "data": {
+        "label": "House of Representatives",
+        "type": "backend",
+        "description": "Lower house directly elected by population",
+        "summary": "The House of Representatives is typically the lower chamber of a bicameral legislature, directly elected by citizens based on population. It serves as the primary voice of the people, with members representing specific geographic constituencies. The House often has exclusive powers over taxation and budget initiation.",
+        "keyFeatures": ["Direct popular election", "Population-based representation", "Budget initiation power", "Shorter terms", "Closer to voters"],
+        "representation": "Geographic constituencies with equal population",
+        "specialPowers": "Often controls taxation and spending bills"
+      }
+    },
+    {
+      "id": "senate",
+      "data": {
+        "label": "Senate",
+        "type": "backend",
+        "description": "Upper house representing states or regions",
+        "summary": "The Senate serves as the upper chamber in bicameral systems, often representing states, regions, or provinces rather than population alone. It provides a forum for sober second thought on legislation, ensuring that smaller jurisdictions have an equal voice alongside larger ones.",
+        "keyFeatures": ["Regional/state representation", "Equal representation regardless of population", "Longer terms", "Special powers", "Deliberative function"],
+        "representation": "Often equal representation for states/regions",
+        "specialPowers": "May confirm appointments, try impeachments, or review treaties"
+      }
+    },
+    {
+      "id": "executive-branch",
+      "data": {
+        "label": "Executive Branch",
+        "type": "frontend",
+        "description": "The branch responsible for implementing and enforcing laws",
+        "summary": "The executive branch is responsible for implementing, administering, and enforcing the laws created by the legislature. Led by a president, prime minister, or similar chief executive, this branch manages day-to-day government operations, oversees the civil service, conducts foreign policy, and ensures national security.",
+        "keyFunctions": ["Law enforcement", "Policy implementation", "Foreign relations", "National defense", "Public administration"],
+        "powers": ["Veto legislation", "Appoint officials", "Execute laws", "Command military", "Conduct diplomacy"]
+      }
+    },
+    {
+      "id": "head-of-government",
+      "data": {
+        "label": "Head of Government",
+        "type": "frontend",
+        "description": "Chief executive responsible for government operations",
+        "summary": "The head of government serves as the chief executive responsible for running the government and implementing policy. This role may be a president (in presidential systems) or prime minister (in parliamentary systems), with different powers and accountability mechanisms depending on the system.",
+        "keyResponsibilities": ["Execute laws", "Lead government", "Policy coordination", "International representation", "Crisis management"],
+        "variations": "President (presidential system) or Prime Minister (parliamentary system)"
+      }
+    },
+    {
+      "id": "cabinet",
+      "data": {
+        "label": "Cabinet",
+        "type": "frontend",
+        "description": "Senior ministers heading government departments",
+        "summary": "The cabinet consists of senior government ministers who head major government departments and collectively make key policy decisions. Cabinet members are typically appointed by the head of government and serve as the primary advisors on policy matters.",
+        "keyFunctions": ["Policy formation", "Government coordination", "Department leadership", "Collective decision-making", "Executive oversight"],
+        "composition": "Senior ministers heading major government departments",
+        "principle": "Collective responsibility and solidarity"
+      }
+    },
+    {
+      "id": "judicial-branch",
+      "data": {
+        "label": "Judicial Branch",
+        "type": "utility",
+        "description": "Independent courts interpreting law and protecting rights",
+        "summary": "The judicial branch interprets and applies the law, ensuring justice and protecting constitutional rights. Courts at various levels hear cases, settle disputes, and determine whether laws and government actions comply with the constitution. The judiciary serves as a check on legislative and executive power.",
+        "keyFunctions": ["Interpret laws", "Ensure justice", "Protect rights", "Resolve disputes", "Check other branches"],
+        "powers": ["Judicial review", "Issue injunctions", "Sentence criminals", "Interpret constitution", "Protect civil liberties"],
+        "independence": "Essential for maintaining rule of law"
+      }
+    },
+    {
+      "id": "supreme-court",
+      "data": {
+        "label": "Supreme Court",
+        "type": "utility",
+        "description": "Highest court with constitutional interpretation powers",
+        "summary": "The Supreme Court stands at the apex of the judicial system, serving as the final arbiter of legal disputes and constitutional interpretation. It has the power of judicial review, allowing it to strike down laws or government actions that violate the constitution.",
+        "keyPowers": ["Final legal authority", "Constitutional interpretation", "Judicial review", "Setting precedent", "Protecting rights"],
+        "jurisdiction": "Highest appeals and constitutional matters",
+        "independence": "Long terms or life tenure to ensure judicial independence"
+      }
+    },
+    {
+      "id": "electoral-system",
+      "data": {
+        "label": "Electoral System",
+        "type": "process",
+        "description": "Methods for conducting democratic elections",
+        "summary": "Electoral systems are the methods and rules used to conduct democratic elections, translating citizen votes into political representation. These systems determine how votes are counted, seats are allocated, and governments are formed, significantly impacting democratic representation and governance.",
+        "keyComponents": ["Voting methods", "Seat allocation", "Candidate selection", "Election administration", "Campaign regulation"],
+        "importance": "Foundation of democratic legitimacy and representation"
+      }
+    },
+    {
+      "id": "elections",
+      "data": {
+        "label": "Democratic Elections",
+        "type": "process",
+        "description": "Regular competitive elections for choosing representatives",
+        "summary": "Elections are the cornerstone of democratic governance, providing the mechanism through which citizens exercise their sovereignty by choosing their representatives and leaders. Free and fair elections require universal suffrage, secret ballots, competing candidates, transparent counting, and regular intervals.",
+        "keyPrinciples": ["Free and fair competition", "Universal suffrage", "Secret ballot", "Regular intervals", "Transparent process"],
+        "requirements": "Independent election administration, equal access, voter education",
+        "significance": "Primary mechanism for democratic legitimacy and peaceful transition of power"
+      }
+    },
+    {
+      "id": "political-parties",
+      "data": {
+        "label": "Political Parties",
+        "type": "organization",
+        "description": "Organizations competing for political power",
+        "summary": "Political parties organize political competition by aggregating diverse interests into coherent policy platforms. They recruit and train candidates, mobilize voters, simplify complex issues for public understanding, and provide organizational structure for governance.",
+        "keyFunctions": ["Organize competition", "Aggregate interests", "Recruit candidates", "Mobilize voters", "Simplify choices"],
+        "roles": "Link between citizens and government, organize legislatures",
+        "importance": "Essential for democratic competition and governance"
+      }
+    },
+    {
+      "id": "voting-systems",
+      "data": {
+        "label": "Voting Systems",
+        "type": "mechanism",
+        "description": "Methods for translating votes into representation",
+        "summary": "Voting systems determine how citizen preferences are translated into political representation and government formation. Different systems produce different outcomes in terms of proportionality, government stability, voter choice, and representation of minorities.",
+        "types": ["Proportional representation", "Majoritarian systems", "Mixed systems", "Ranked choice", "List systems"],
+        "considerations": "Proportionality vs. stability, local vs. national representation",
+        "impact": "Shapes party systems and representation patterns"
+      }
+    },
+    {
+      "id": "civil-society",
+      "data": {
+        "label": "Civil Society",
+        "type": "sector",
+        "description": "Independent organizations and citizen groups",
+        "summary": "Civil society encompasses the realm of voluntary associations, NGOs, community groups, and citizen organizations that operate independently of government and business. These organizations provide alternative channels for political participation, advocate for specific causes, and monitor government performance.",
+        "keyComponents": ["NGOs", "Community groups", "Professional associations", "Advocacy organizations", "Volunteer groups"],
+        "functions": "Advocacy, service delivery, civic education, government monitoring",
+        "democraticRole": "Provides alternative participation channels and checks on power"
+      }
+    },
+    {
+      "id": "free-media",
+      "data": {
+        "label": "Free Media",
+        "type": "institution",
+        "description": "Independent press informing citizens and ensuring transparency",
+        "summary": "Free and independent media serves as democracy's watchdog, informing citizens about government actions, exposing corruption, and providing platforms for public debate. Press freedom requires protection from government censorship, diverse ownership, and professional journalism standards.",
+        "keyFunctions": ["Inform citizens", "Monitor government", "Expose corruption", "Facilitate debate", "Shape opinion"],
+        "requirements": "Independence, diversity, professional standards, access to information",
+        "democraticRole": "Fourth estate providing transparency and accountability"
+      }
+    },
+    {
+      "id": "rule-of-law",
+      "data": {
+        "label": "Rule of Law",
+        "type": "principle",
+        "description": "Principle that all are subject to law",
+        "summary": "The rule of law ensures that all individuals and institutions, including government officials, are subject to legal constraints and cannot act arbitrarily. This principle requires clear, predictable laws that are fairly enforced, independent courts, and equal treatment before the law.",
+        "elements": ["Legal equality", "Independent judiciary", "Clear laws", "Fair enforcement", "Constitutional limits"],
+        "protection": "Prevents arbitrary government action",
+        "requirements": "Independent courts, legal profession, constitutional framework"
+      }
+    },
+    {
+      "id": "bill-of-rights",
+      "data": {
+        "label": "Bill of Rights",
+        "type": "document",
+        "description": "Constitutional protections for individual freedoms",
+        "summary": "The bill of rights explicitly enumerates fundamental individual freedoms and civil liberties that government cannot violate. These typically include freedom of speech, religion, assembly, press, and due process rights. Bills of rights protect minority interests against majority tyranny.",
+        "protectedRights": ["Freedom of speech", "Religious liberty", "Due process", "Equal protection", "Privacy rights"],
+        "purpose": "Protect individual liberty from government overreach",
+        "enforcement": "Courts interpret and enforce these protections"
+      }
+    },
+    {
+      "id": "three-pillars-of-government",
+      "data": {
+        "label": "Three Pillars of Government",
+        "type": "backend",
+        "description": "The three fundamental branches that form the structure of democratic government",
+        "summary": "The three pillars of government - Legislative, Executive, and Judicial - form the foundational structure of democratic governance based on the separation of powers principle. Each pillar has distinct functions and serves as a check on the others, ensuring balanced governance and preventing the concentration of power in any single institution.",
+        "pillars": ["Legislative Branch", "Executive Branch", "Judicial Branch"],
+        "purpose": "Balanced governance through institutional separation",
+        "mechanism": "Specialized functions with mutual oversight"
+      }
+    },
+    {
+      "id": "state-legislatures",
+      "data": {
+        "label": "State Legislatures",
+        "type": "backend",
+        "description": "Legislative bodies governing individual states/provinces",
+        "summary": "State legislatures are the law-making bodies at the regional level, handling matters not reserved for the national parliament. They represent local interests and manage state-specific governance issues like education, healthcare, and local infrastructure.",
+        "keyFunctions": ["State law-making", "Local governance", "Budget approval", "Regional representation"],
+        "powers": ["Education policy", "Healthcare administration", "Local infrastructure", "State taxation"]
+      }
+    },
+    {
+      "id": "members-of-parliament",
+      "data": {
+        "label": "Members of Parliament (MPs)",
+        "type": "person",
+        "description": "Elected representatives in the lower house of parliament",
+        "summary": "MPs are directly elected representatives who form the core of the legislative branch. They represent specific constituencies, debate and vote on national legislation, and hold the government accountable through questions and oversight.",
+        "keyFunctions": ["Represent constituencies", "Debate legislation", "Vote on laws", "Government oversight"],
+        "responsibilities": ["Constituency service", "Law-making", "Budget approval", "Executive accountability"]
+      }
+    },
+    {
+      "id": "speaker-of-house",
+      "data": {
+        "label": "Speaker of the House",
+        "type": "person",
+        "description": "Presiding officer of the lower house of parliament",
+        "summary": "The Speaker maintains order during parliamentary proceedings, ensures rules are followed, and represents the house in ceremonial functions. They are typically elected by MPs and must remain politically neutral.",
+        "keyFunctions": ["Preside over sessions", "Maintain order", "Interpret rules", "Ceremonial duties"],
+        "powers": ["Control debate", "Discipline members", "Represent parliament", "Administrative oversight"]
+      }
+    },
+    {
+      "id": "senators",
+      "data": {
+        "label": "Senators",
+        "type": "person",
+        "description": "Members of the upper house representing states/regions",
+        "summary": "Senators typically represent states or regions rather than population-based constituencies. They provide a check on the lower house, review legislation, and ensure regional interests are considered in national policy.",
+        "keyFunctions": ["Regional representation", "Legislative review", "Government scrutiny", "Treaty approval"],
+        "characteristics": ["Longer terms", "Regional focus", "Constitutional role", "Review function"]
+      }
+    },
+    {
+      "id": "senate-president",
+      "data": {
+        "label": "Senate President",
+        "type": "person",
+        "description": "Presiding officer of the upper house",
+        "summary": "The Senate President leads the upper house proceedings, ensuring orderly debate and proper procedure. They often have tie-breaking powers and represent the senate in inter-parliamentary relations.",
+        "keyFunctions": ["Preside over senate", "Break ties", "Maintain procedure", "Inter-house relations"],
+        "authority": ["Procedural control", "Tie-breaking vote", "Administrative leadership", "Ceremonial role"]
+      }
+    },
+    {
+      "id": "state-assemblies",
+      "data": {
+        "label": "State Assemblies",
+        "type": "backend",
+        "description": "Lower houses of state legislatures",
+        "summary": "State assemblies are the directly elected lower houses of state legislatures, handling local legislation and governance. They work closely with state governments to address regional needs and implement national policies at the state level.",
+        "keyFunctions": ["State legislation", "Local governance", "Regional representation", "Implementation oversight"],
+        "scope": ["Education policy", "Healthcare delivery", "Local infrastructure", "Regional development"]
+      }
+    },
+    {
+      "id": "legislative-councils",
+      "data": {
+        "label": "Legislative Councils",
+        "type": "backend",
+        "description": "Upper houses of state legislatures where they exist",
+        "summary": "Legislative councils serve as upper houses in some states, providing additional review of state legislation and representing diverse interests including local bodies, professions, and educational institutions.",
+        "keyFunctions": ["Legislative review", "Diverse representation", "Policy scrutiny", "Regional balance"],
+        "composition": ["Local body representatives", "Professional nominees", "Educational representatives", "Government nominees"]
+      }
+    },
+    {
+      "id": "members-legislative-assembly",
+      "data": {
+        "label": "Members of Legislative Assembly (MLAs)",
+        "type": "person",
+        "description": "Elected representatives in state assemblies",
+        "summary": "MLAs are directly elected to represent constituencies at the state level. They focus on local issues, state legislation, and ensuring state government accountability while connecting regional concerns to state policy.",
+        "keyFunctions": ["Local representation", "State legislation", "Government oversight", "Constituency service"],
+        "responsibilities": ["Local development", "State policy input", "Government accountability", "Citizen services"]
+      }
+    },
+    {
+      "id": "head-of-state",
+      "data": {
+        "label": "Head of State",
+        "type": "position",
+        "description": "Ceremonial leader representing national unity",
+        "summary": "The head of state serves as the ceremonial leader and symbol of national unity, typically with limited political power but important constitutional functions. They represent the nation in diplomatic relations and formal state functions.",
+        "keyFunctions": ["National representation", "Constitutional duties", "Ceremonial functions", "Diplomatic role"],
+        "characteristics": ["Symbolic authority", "Constitutional role", "National unity", "Ceremonial duties"]
+      }
+    },
+    {
+      "id": "president",
+      "data": {
+        "label": "President",
+        "type": "person",
+        "description": "Head of state in a presidential or semi-presidential system",
+        "summary": "The President serves as the head of state and may also be head of government. In parliamentary systems, the president typically has ceremonial roles, while in presidential systems, they wield executive power and lead the government.",
+        "keyFunctions": ["Head of state duties", "Constitutional role", "National representation", "Executive oversight"],
+        "powers": ["Ceremonial authority", "Constitutional functions", "Diplomatic representation", "Executive coordination"]
+      }
+    },
+    {
+      "id": "prime-minister",
+      "data": {
+        "label": "Prime Minister",
+        "type": "person",
+        "description": "Head of government leading the executive branch",
+        "summary": "The Prime Minister is the head of government, typically the leader of the majority party or coalition in parliament. They chair the cabinet, set government policy, and are responsible for day-to-day governance and policy implementation.",
+        "keyFunctions": ["Government leadership", "Policy direction", "Cabinet coordination", "Parliamentary leadership"],
+        "responsibilities": ["Executive leadership", "Policy formulation", "Government coordination", "Public representation"]
+      }
+    },
+    {
+      "id": "deputy-prime-minister",
+      "data": {
+        "label": "Deputy Prime Minister",
+        "type": "person",
+        "description": "Second-in-command to the Prime Minister",
+        "summary": "The Deputy Prime Minister assists the PM and may act in their absence. They often handle specific policy areas or coordinate between different government departments, providing crucial support in government operations.",
+        "keyFunctions": ["PM support", "Policy coordination", "Government representation", "Administrative oversight"],
+        "role": ["PM assistance", "Coordination duties", "Specialized portfolio", "Succession planning"]
+      }
+    },
+    {
+      "id": "cabinet-ministers",
+      "data": {
+        "label": "Cabinet Ministers",
+        "type": "person",
+        "description": "Senior ministers heading major government departments",
+        "summary": "Cabinet ministers are senior government officials who head major departments like finance, defense, health, and education. They are responsible for policy formulation and implementation in their respective areas and collectively form the cabinet.",
+        "keyFunctions": ["Department leadership", "Policy formulation", "Cabinet participation", "Parliamentary representation"],
+        "responsibilities": ["Departmental management", "Policy implementation", "Budget oversight", "Public accountability"]
+      }
+    },
+    {
+      "id": "state-ministers",
+      "data": {
+        "label": "State Ministers",
+        "type": "person",
+        "description": "Junior ministers assisting cabinet ministers",
+        "summary": "State ministers are junior ministers who assist cabinet ministers in managing large departments. They handle specific aspects of ministerial portfolios and help ensure effective governance across all government functions.",
+        "keyFunctions": ["Ministerial assistance", "Specialized functions", "Administrative support", "Parliamentary duties"],
+        "scope": ["Portfolio assistance", "Specialized areas", "Administrative oversight", "Policy support"]
+      }
+    },
+    {
+      "id": "high-courts",
+      "data": {
+        "label": "High Courts",
+        "type": "backend",
+        "description": "Principal civil and criminal courts at state level",
+        "summary": "High Courts are the highest judicial authorities at the state level, handling appeals from lower courts and having original jurisdiction in certain matters. They ensure justice delivery and interpret state and national laws.",
+        "keyFunctions": ["State-level appeals", "Constitutional interpretation", "Administrative oversight", "Original jurisdiction"],
+        "jurisdiction": ["Civil appeals", "Criminal appeals", "Constitutional matters", "Administrative law"]
+      }
+    },
+    {
+      "id": "chief-justice",
+      "data": {
+        "label": "Chief Justice",
+        "type": "person",
+        "description": "Head of the Supreme Court and senior-most judge",
+        "summary": "The Chief Justice is the administrative head of the judiciary and senior-most judge of the Supreme Court. They assign cases, lead constitutional interpretation, and represent the judiciary in its relations with other branches of government.",
+        "keyFunctions": ["Judicial administration", "Case assignment", "Constitutional leadership", "Inter-branch relations"],
+        "responsibilities": ["Court management", "Judicial leadership", "Constitutional interpretation", "System oversight"]
+      }
+    },
+    {
+      "id": "supreme-court-judges",
+      "data": {
+        "label": "Supreme Court Judges",
+        "type": "person",
+        "description": "Justices serving on the highest court",
+        "summary": "Supreme Court judges are the senior-most judicial officers responsible for constitutional interpretation, final appeals, and ensuring justice. They have security of tenure and independence to make impartial judicial decisions.",
+        "keyFunctions": ["Constitutional interpretation", "Final appeals", "Legal precedent", "Judicial review"],
+        "characteristics": ["Life tenure", "Judicial independence", "Constitutional authority", "Legal expertise"]
+      }
+    },
+    {
+      "id": "high-court-judges",
+      "data": {
+        "label": "High Court Judges",
+        "type": "person",
+        "description": "Judges serving in state high courts",
+        "summary": "High Court judges handle state-level judicial matters, appeals from subordinate courts, and administrative law cases. They play a crucial role in ensuring justice delivery at the regional level.",
+        "keyFunctions": ["State appeals", "Administrative law", "Constitutional matters", "Judicial oversight"],
+        "jurisdiction": ["State matters", "Appeal cases", "Administrative disputes", "Constitutional issues"]
+      }
+    },
+    {
+      "id": "district-courts",
+      "data": {
+        "label": "District Courts",
+        "type": "backend",
+        "description": "Lower courts handling local civil and criminal matters",
+        "summary": "District courts are the primary trial courts handling civil and criminal cases at the local level. They provide accessible justice to citizens and form the foundation of the judicial system.",
+        "keyFunctions": ["Local trials", "Civil disputes", "Criminal cases", "First-instance jurisdiction"],
+        "scope": ["Local justice", "Trial proceedings", "Dispute resolution", "Community access"]
+      }
+    }
+  ],
+  "hierarchy": {
+    "constitutional-democracy": [
+      "three-pillars-of-government",
+      "electoral-system",
+      "rule-of-law",
+      "bill-of-rights",
+      "civil-society",
+      "free-media"
+    ],
+    "three-pillars-of-government": [
+      "legislative-branch",
+      "executive-branch",
+      "judicial-branch"
+    ],
+    "legislative-branch": [
+      "parliament",
+      "state-legislatures"
+    ],
+    "parliament": [
+      "house-representatives",
+      "senate"
+    ],
+    "house-representatives": [
+      "members-of-parliament",
+      "speaker-of-house"
+    ],
+    "senate": [
+      "senators",
+      "senate-president"
+    ],
+    "state-legislatures": [
+      "state-assemblies",
+      "legislative-councils"
+    ],
+    "state-assemblies": [
+      "members-legislative-assembly"
+    ],
+    "executive-branch": [
+      "head-of-state",
+      "head-of-government"
+    ],
+    "head-of-state": [
+      "president"
+    ],
+    "head-of-government": [
+      "prime-minister",
+      "cabinet"
+    ],
+    "prime-minister": [
+      "deputy-prime-minister"
+    ],
+    "cabinet": [
+      "cabinet-ministers",
+      "state-ministers"
+    ],
+    "judicial-branch": [
+      "supreme-court",
+      "high-courts"
+    ],
+    "supreme-court": [
+      "chief-justice",
+      "supreme-court-judges"
+    ],
+    "high-courts": [
+      "high-court-judges",
+      "district-courts"
+    ],
+    "electoral-system": [
+      "elections",
+      "voting-systems"
+    ],
+    "elections": [
+      "political-parties"
+    ]
+  },
+  "edges": [
+    {
+      "id": "const-democracy-three-pillars",
+      "source": "constitutional-democracy",
+      "target": "three-pillars-of-government",
+      "type": "establishes"
+    },
+    {
+      "id": "const-democracy-rule-law",
+      "source": "constitutional-democracy", 
+      "target": "rule-of-law",
+      "type": "requires"
+    },
+    {
+      "id": "const-democracy-bill-rights",
+      "source": "constitutional-democracy",
+      "target": "bill-of-rights",
+      "type": "protects"
+    },
+    {
+      "id": "const-democracy-electoral",
+      "source": "constitutional-democracy",
+      "target": "electoral-system",
+      "type": "enables"
+    },
+    {
+      "id": "three-pillars-legislative",
+      "source": "three-pillars-of-government",
+      "target": "legislative-branch",
+      "type": "creates"
+    },
+    {
+      "id": "three-pillars-executive",
+      "source": "three-pillars-of-government",
+      "target": "executive-branch",
+      "type": "creates"
+    },
+    {
+      "id": "three-pillars-judicial",
+      "source": "three-pillars-of-government",
+      "target": "judicial-branch",
+      "type": "creates"
+    },
+    {
+      "id": "legislative-parliament",
+      "source": "legislative-branch",
+      "target": "parliament",
+      "type": "manifests"
+    },
+    {
+      "id": "parliament-house",
+      "source": "parliament",
+      "target": "house-representatives",
+      "type": "contains"
+    },
+    {
+      "id": "parliament-senate",
+      "source": "parliament",
+      "target": "senate",
+      "type": "contains"
+    },
+    {
+      "id": "executive-head",
+      "source": "executive-branch",
+      "target": "head-of-government",
+      "type": "leads"
+    },
+    {
+      "id": "head-cabinet",
+      "source": "head-of-government",
+      "target": "cabinet",
+      "type": "directs"
+    },
+    {
+      "id": "judicial-supreme",
+      "source": "judicial-branch",
+      "target": "supreme-court",
+      "type": "apex"
+    },
+    {
+      "id": "electoral-elections",
+      "source": "electoral-system",
+      "target": "elections",
+      "type": "conducts"
+    },
+    {
+      "id": "electoral-voting",
+      "source": "electoral-system",
+      "target": "voting-systems",
+      "type": "uses"
+    },
+    {
+      "id": "elections-parties",
+      "source": "elections",
+      "target": "political-parties",
+      "type": "involves"
+    },
+    {
+      "id": "const-democracy-civil-society",
+      "source": "constitutional-democracy",
+      "target": "civil-society",
+      "type": "enables"
+    },
+    {
+      "id": "const-democracy-media",
+      "source": "constitutional-democracy",
+      "target": "free-media",
+      "type": "protects"
+    },
+    {
+      "id": "checks-legislative-executive",
+      "source": "legislative-branch",
+      "target": "executive-branch",
+      "type": "checks"
+    },
+    {
+      "id": "checks-executive-legislative",
+      "source": "executive-branch",
+      "target": "legislative-branch",
+      "type": "checks"
+    },
+    {
+      "id": "checks-judicial-legislative",
+      "source": "judicial-branch",
+      "target": "legislative-branch",
+      "type": "reviews"
+    },
+    {
+      "id": "checks-judicial-executive",
+      "source": "judicial-branch",
+      "target": "executive-branch",
+      "type": "reviews"
+    },
+    {
+      "id": "legislative-state-legislatures",
+      "source": "legislative-branch",
+      "target": "state-legislatures",
+      "type": "includes"
+    },
+    {
+      "id": "house-mps",
+      "source": "house-representatives",
+      "target": "members-of-parliament",
+      "type": "comprises"
+    },
+    {
+      "id": "house-speaker",
+      "source": "house-representatives",
+      "target": "speaker-of-house",
+      "type": "elects"
+    },
+    {
+      "id": "senate-senators",
+      "source": "senate",
+      "target": "senators",
+      "type": "comprises"
+    },
+    {
+      "id": "senate-president-senate",
+      "source": "senate",
+      "target": "senate-president",
+      "type": "elects"
+    },
+    {
+      "id": "state-leg-assemblies",
+      "source": "state-legislatures",
+      "target": "state-assemblies",
+      "type": "includes"
+    },
+    {
+      "id": "state-leg-councils",
+      "source": "state-legislatures",
+      "target": "legislative-councils",
+      "type": "includes"
+    },
+    {
+      "id": "assemblies-mlas",
+      "source": "state-assemblies",
+      "target": "members-legislative-assembly",
+      "type": "comprises"
+    },
+    {
+      "id": "executive-head-state",
+      "source": "executive-branch",
+      "target": "head-of-state",
+      "type": "includes"
+    },
+    {
+      "id": "head-state-president",
+      "source": "head-of-state",
+      "target": "president",
+      "type": "manifests"
+    },
+    {
+      "id": "head-gov-pm",
+      "source": "head-of-government",
+      "target": "prime-minister",
+      "type": "manifests"
+    },
+    {
+      "id": "pm-deputy",
+      "source": "prime-minister",
+      "target": "deputy-prime-minister",
+      "type": "appoints"
+    },
+    {
+      "id": "cabinet-cabinet-ministers",
+      "source": "cabinet",
+      "target": "cabinet-ministers",
+      "type": "comprises"
+    },
+    {
+      "id": "cabinet-state-ministers",
+      "source": "cabinet",
+      "target": "state-ministers",
+      "type": "includes"
+    },
+    {
+      "id": "judicial-high-courts",
+      "source": "judicial-branch",
+      "target": "high-courts",
+      "type": "includes"
+    },
+    {
+      "id": "supreme-chief-justice",
+      "source": "supreme-court",
+      "target": "chief-justice",
+      "type": "headed-by"
+    },
+    {
+      "id": "supreme-judges",
+      "source": "supreme-court",
+      "target": "supreme-court-judges",
+      "type": "comprises"
+    },
+    {
+      "id": "high-court-judges-high",
+      "source": "high-courts",
+      "target": "high-court-judges",
+      "type": "comprises"
+    },
+    {
+      "id": "high-courts-district",
+      "source": "high-courts",
+      "target": "district-courts",
+      "type": "oversees"
+    }
+  ],
+  "details": {}
+}

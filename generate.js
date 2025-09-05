@@ -33,11 +33,21 @@ class ArchitectureDocGenerator {
             const htmlContent = this.generateHTML(architectureData, templates);
             console.log('✅ HTML content generated');
             
-            // 4. Write output file
-            this.writeOutputFile(outputPath, htmlContent);
-            console.log(`✅ Documentation generated successfully: ${outputPath}`);
+            // 4. Generate documentation page
+            const docContent = this.generateDocumentation(architectureData);
+            console.log('✅ Documentation page generated');
             
-            // 5. Display summary
+            // 5. Write output files
+            this.writeOutputFile(outputPath, htmlContent);
+            
+            // Generate documentation file with same name but different suffix
+            const docPath = outputPath.replace('.html', '-documentation.html');
+            this.writeOutputFile(docPath, docContent);
+            
+            console.log(`✅ Architecture view generated: ${outputPath}`);
+            console.log(`✅ Documentation view generated: ${docPath}`);
+            
+            // 6. Display summary
             this.displaySummary(architectureData, outputPath);
             
         } catch (error) {
@@ -110,6 +120,13 @@ class ArchitectureDocGenerator {
         }
         templates.html = fs.readFileSync(htmlPath, 'utf8');
         
+        // Load Documentation template
+        const docPath = path.join(this.templatesDir, 'documentation.html');
+        if (!fs.existsSync(docPath)) {
+            throw new Error('Documentation template not found: documentation.html');
+        }
+        templates.documentation = fs.readFileSync(docPath, 'utf8');
+        
         // Load CSS
         const cssPath = path.join(this.templatesDir, 'styles.css');
         if (!fs.existsSync(cssPath)) {
@@ -144,6 +161,226 @@ class ArchitectureDocGenerator {
             .replace('{{VISUALIZATION_JS}}', jsWithData);
         
         return htmlContent;
+    }
+    
+    generateDocumentation(architectureData) {
+        const templates = this.loadTemplates();
+        
+        // Extract documentation data
+        const metadata = architectureData.metadata || {};
+        const documentation = metadata.documentation || {};
+        const fullDocumentation = metadata.fullDocumentation || {};
+        
+        // Generate components HTML with API format
+        let componentsHTML = '';
+        let componentNavHTML = '';
+        
+        if (architectureData.details) {
+            for (const [nodeId, details] of Object.entries(architectureData.details)) {
+                const node = architectureData.nodes.find(n => n.id === nodeId);
+                if (!node) continue;
+                
+                const componentId = `component-${nodeId}`;
+                const componentLabel = details.label || node.data.label;
+                
+                // Add navigation button
+                componentNavHTML += `<button class="component-nav-btn" onclick="scrollToComponent('${componentId}')">${componentLabel}</button>\n`;
+                
+                let componentHTML = `<div class="api-component" id="${componentId}">
+                    <div class="api-header">
+                        <h3 class="api-title">\`${componentLabel}\`</h3>
+                        <p class="api-summary">${details.summary || ''}</p>
+                    </div>
+                    <div class="api-content">`;
+                
+                // Signature section
+                if (details.signature) {
+                    componentHTML += `
+                        <div class="api-section">
+                            <h4>⚡ Function Signature</h4>
+                            <div class="signature-block">${details.signature}</div>
+                        </div>`;
+                }
+                
+                // Parameters/Inputs - Modern card layout
+                if (details.inputs && details.inputs.length > 0) {
+                    componentHTML += `
+                        <div class="api-section">
+                            <h4>📥 Parameters</h4>
+                            <div class="params-grid">`;
+                    details.inputs.forEach(input => {
+                        componentHTML += `
+                            <div class="param-card input-card">
+                                <div class="param-header">
+                                    <span class="param-name">${input.name}</span>
+                                    <span class="param-type">${input.format}</span>
+                                </div>
+                                <div class="param-description">${input.description}</div>
+                            </div>`;
+                    });
+                    componentHTML += `</div></div>`;
+                }
+                
+                // Returns/Outputs - Modern card layout
+                if (details.outputs && details.outputs.length > 0) {
+                    componentHTML += `
+                        <div class="api-section">
+                            <h4>📤 Returns</h4>
+                            <div class="params-grid">`;
+                    details.outputs.forEach(output => {
+                        componentHTML += `
+                            <div class="param-card output-card">
+                                <div class="param-header">
+                                    <span class="param-name">${output.name}</span>
+                                    <span class="param-type">${output.format}</span>
+                                </div>
+                                <div class="param-description">${output.description}</div>
+                            </div>`;
+                    });
+                    componentHTML += `</div></div>`;
+                }
+                
+                // Working details/Notes
+                if (details.working) {
+                    componentHTML += `
+                        <div class="api-section">
+                            <h4>💡 Implementation Details</h4>
+                            <div class="working-details">${details.working}</div>
+                        </div>`;
+                }
+                
+                // Dependencies/Imports
+                if (details.imports && details.imports.length > 0) {
+                    componentHTML += `
+                        <div class="api-section">
+                            <h4>📦 Dependencies</h4>
+                            <div class="dependencies-list">`;
+                    details.imports.forEach(dep => {
+                        componentHTML += `<span class="dependency-badge">${dep}</span>`;
+                    });
+                    componentHTML += `</div>
+                        </div>`;
+                }
+                
+                componentHTML += `</div></div>`;
+                componentsHTML += componentHTML;
+            }
+        }
+        
+        // Generate full documentation sections
+        let fullDocHTML = '';
+        if (fullDocumentation) {
+            for (const [sectionKey, section] of Object.entries(fullDocumentation)) {
+                fullDocHTML += `<div class="doc-section">
+                    <h3>${section.title}</h3>
+                    <div class="doc-content">${section.content}</div>`;
+                
+                // Add principles if available
+                if (section.principles && section.principles.length > 0) {
+                    fullDocHTML += `<div class="doc-principles">
+                        <h4>Core Principles:</h4>
+                        <ul>`;
+                    section.principles.forEach(principle => {
+                        fullDocHTML += `<li>${principle}</li>`;
+                    });
+                    fullDocHTML += `</ul></div>`;
+                }
+                
+                // Add structure if available
+                if (section.structure) {
+                    fullDocHTML += `<div class="structure-grid">`;
+                    for (const [key, value] of Object.entries(section.structure)) {
+                        fullDocHTML += `<div class="structure-item">
+                            <h5>${key.replace(/_/g, ' ').toUpperCase()}</h5>
+                            <p>${value}</p>
+                        </div>`;
+                    }
+                    fullDocHTML += `</div>`;
+                }
+                
+                // Add patterns if available
+                if (section.patterns && section.patterns.length > 0) {
+                    fullDocHTML += `<div class="doc-patterns">
+                        <h4>Design Patterns:</h4>
+                        <ul>`;
+                    section.patterns.forEach(pattern => {
+                        fullDocHTML += `<li>${pattern}</li>`;
+                    });
+                    fullDocHTML += `</ul></div>`;
+                }
+                
+                // Add technologies if available
+                if (section.technologies && section.technologies.length > 0) {
+                    fullDocHTML += `<div class="doc-technologies">
+                        <h4>Technologies:</h4>
+                        <ul>`;
+                    section.technologies.forEach(tech => {
+                        fullDocHTML += `<li>${tech}</li>`;
+                    });
+                    fullDocHTML += `</ul></div>`;
+                }
+                
+                // Add common patterns if available
+                if (section.common_patterns) {
+                    fullDocHTML += `<div class="doc-patterns">
+                        <h4>Common Patterns:</h4>
+                        <div class="structure-grid">`;
+                    for (const [key, value] of Object.entries(section.common_patterns)) {
+                        fullDocHTML += `<div class="structure-item">
+                            <h5>${key.replace(/_/g, ' ').toUpperCase()}</h5>
+                            <p>${value}</p>
+                        </div>`;
+                    }
+                    fullDocHTML += `</div></div>`;
+                }
+                
+                // Add service communication if available
+                if (section.service_communication && section.service_communication.length > 0) {
+                    fullDocHTML += `<div class="doc-patterns">
+                        <h4>Service Communication:</h4>
+                        <ul>`;
+                    section.service_communication.forEach(comm => {
+                        fullDocHTML += `<li>${comm}</li>`;
+                    });
+                    fullDocHTML += `</ul></div>`;
+                }
+                
+                // Add database patterns if available
+                if (section.database_patterns) {
+                    fullDocHTML += `<div class="doc-patterns">
+                        <h4>Database Patterns:</h4>
+                        <div class="structure-grid">`;
+                    for (const [key, value] of Object.entries(section.database_patterns)) {
+                        fullDocHTML += `<div class="structure-item">
+                            <h5>${key.replace(/_/g, ' ').toUpperCase()}</h5>
+                            <p>${value}</p>
+                        </div>`;
+                    }
+                    fullDocHTML += `</div></div>`;
+                }
+                
+                fullDocHTML += `</div>`;
+            }
+        }
+        
+        // Replace placeholders in documentation template
+        const docContent = templates.documentation
+            .replace(/\{\{PROJECT_NAME\}\}/g, metadata.name || 'Architecture Documentation')
+            .replace(/\{\{PROJECT_DESCRIPTION\}\}/g, metadata.description || 'Project architecture documentation')
+            .replace(/\{\{PROJECT_VERSION\}\}/g, metadata.version || '1.0.0')
+            .replace(/\{\{PROJECT_SUMMARY\}\}/g, metadata.summary || 'No summary provided.')
+            .replace(/\{\{OVERVIEW\}\}/g, documentation.overview || 'No overview provided.')
+            .replace(/\{\{INSTALLATION\}\}/g, documentation.installation || 'npm install')
+            .replace(/\{\{USAGE\}\}/g, documentation.usage || 'npm start')
+            .replace(/\{\{API_REFERENCE\}\}/g, documentation.api_reference || 'No API reference provided.')
+            .replace(/\{\{CONTRIBUTING\}\}/g, documentation.contributing || 'No contributing guidelines provided.')
+            .replace(/\{\{LICENSE\}\}/g, documentation.license || 'No license information provided.')
+            .replace('{{COMPONENTS}}', componentsHTML)
+            .replace('{{COMPONENT_NAV}}', componentNavHTML)
+            .replace('{{FULL_DOCUMENTATION}}', fullDocHTML)
+            .replace('{{GRAPH_PAGE}}', 'index.html');
+        
+        return docContent;
     }
     
     writeOutputFile(outputPath, content) {
@@ -186,17 +423,21 @@ class ArchitectureDocGenerator {
 🏗️  Architecture Documentation Generator
 
 Usage:
-  node generate.js <input.json> <output.html>
+  node generate.js <input.json>
 
 Examples:
-  node generate.js examples/sample-architecture.json output/docs.html
-  node generate.js ./my-project.json ./docs/architecture.html
+  node generate.js examples/sample-architecture.json
+  node generate.js my-project.json
+  node generate.js examples/professional-sample.json
 
 Options:
   --help, -h    Show this help message
 
-The generator creates a self-contained HTML file with interactive
-architecture visualization using Cytoscape.js.
+The generator automatically creates output files in the output/ folder:
+- [filename].html (interactive visualization)
+- [filename]-documentation.html (comprehensive documentation)
+
+Output files are self-contained and work offline in any browser.
         `);
     }
     
@@ -210,13 +451,20 @@ architecture visualization using Cytoscape.js.
         }
         
         // Validate arguments
-        if (args.length < 2) {
-            console.error('❌ Error: Please provide input JSON file and output HTML file');
-            console.log('   Usage: node generate.js <input.json> <output.html>');
+        if (args.length < 1) {
+            console.error('❌ Error: Please provide input JSON file');
+            console.log('   Usage: node generate.js <input.json>');
+            console.log('   Output will be automatically generated in the output/ folder');
             process.exit(1);
         }
         
-        const [inputPath, outputPath] = args;
+        const inputPath = args[0];
+        
+        // Extract filename without extension from input path
+        const inputFileName = path.basename(inputPath, '.json');
+        
+        // Generate output path in the output folder
+        const outputPath = path.join(__dirname, 'output', `${inputFileName}.html`);
         
         // Generate documentation
         const generator = new ArchitectureDocGenerator();
